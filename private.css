@@ -1,0 +1,357 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/static/gikis.gif');
+  background-size: 100% 100%; /* Updated */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.white-screen {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+}
+
+.container {
+  width:100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+
+
+.clock, .date {
+  font-family: Arial, sans-serif;
+}
+
+.clock {
+  font-size: 400px;
+}
+
+.date {
+  font-size: 160px;
+}
+
+.color-selector {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+.color-selector input[type="color"] {
+  width: 100px;
+  height: 30px;
+}
+
+.font-options {
+  position: absolute;
+  left: 10px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+.font-options button {
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+
+.scrollable-content {
+  height: 200vh; /* Set height to 200% of viewport height to enable scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+
+.containerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+.preset {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto; /* Set button width to auto */
+  max-width: 200px; /* Set max-width to limit button width */
+  margin-top: 20px;
+}
+
+.preset:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.preset input[type="submit"] {
+  padding: 10px 20px; /* Add padding to the input */
+  background-color: transparent; /* Set background color to transparent */
+  color: inherit; /* Inherit text color from parent */
+  border: none; /* Remove border */
+  cursor: pointer; /* Ensure pointer cursor */
+}
+
+.logout-link a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f44336; /* Red color */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  
+}
+
+.logout-link a:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Button Styles */
+#cancel-btn,
+#logout-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#cancel-btn {
+  background-color: #ccc;
+}
+
+#logout-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+#logout-btn:hover {
+  background-color: #d32f2f;
+}
+
+
+
+
+
+
+
+
+
+
+/* Positioning for the login section */
+.login-section {
+  position: absolute;
+  top: 8vh; /* This positions the login section at the bottom of the viewport */
+  width: 100%;
+  text-align: center;
+}
+
+
+/* Style for the form */
+.login-form {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px; /* Adjust width as needed */
+}
+
+.login-form form {
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style for the create account link */
+.create-account-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+/* Style for the create account link */
+.logout-link {
+  margin-top: 20px;
+  text-align: center;
+  top: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 2070px) {
+  .clock {
+      font-size: 300px;
+  }
+  
+  .date {
+      font-size: 110px;
+  }
+
+  /* Adjust font size for Courier New */
+  .clock[data-font="Courier New"] {
+      font-size: calc(300px - 30px); /* 10 pixels smaller than Arial */
+  }
+
+  .date[data-font="Courier New"] {
+      font-size: calc(110px - 20px); /* 10 pixels smaller than Arial */
+  }
+}
+
+@media screen and (max-width: 1540px) {
+  .clock {
+      font-size: 200px;
+  }
+  
+  .date {
+      font-size: 90px;
+  }
+
+  /* Adjust font size for Courier New */
+  .clock[data-font="Courier New"] {
+      font-size: calc(200px - 30px); /* 10 pixels smaller than Arial */
+  }
+
+  .date[data-font="Courier New"] {
+      font-size: calc(90px - 20px); /* 10 pixels smaller than Arial */
+  }
+}
+
+
+@media screen and (max-width: 1201px) {
+
+  /* Adjust font size for Courier New */
+  .clock[data-font="Courier New"] {
+      font-size: calc(150px - 30px); /* 10 pixels smaller than Arial */
+  }
+
+  .date[data-font="Courier New"] {
+      font-size: calc(40px - 20px); /* 10 pixels smaller than Arial */
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .clock {
+      font-size: 150px;
+  }
+  
+  .date {
+      font-size: 40px;
+  }
+
+}
+
+
+
+@media screen and (max-width: 780px) {
+  .clock {
+      font-size: 90px;
+  }
+  
+  .date {
+      font-size: 20px;
+  }
+
+  /* Adjust font size for Courier New */
+  .clock[data-font="Courier New"] {
+      font-size: calc(90px - 30px); /* 10 pixels smaller than Arial */
+  }
+
+  .date[data-font="Courier New"] {
+      font-size: calc(20px - 20px); /* 10 pixels smaller than Arial */
+  }
+}
