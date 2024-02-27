@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="static/private.css" type="text/css">
+</head>
+<body>
+  <div class="top-screen">
+
+    <!-- Clock and date -->
+    <div class="container">
+        <div id="clock" class="clock"></div>
+        <div id="date" class="date"></div>
+    </div>
+  </div>
+
+  <div class="white-screen">
+    <!-- Color Selector -->
+    <div id="colorSelector" class="color-selector">
+        <input type="color" id="fontColor" value="#000000">
+    </div>
+
+    <!-- Font Options -->
+    <div id="fontOptions" class="font-options">
+        <button onclick="changeFont('Arial')">Arial</button>
+        <button onclick="changeFont('Times New Roman')">Times New Roman</button>
+        <!-- <button onclick="changeFont('Courier New')">Courier New</button> -->
+    </div>
+
+    <form action="/create_preset" method="post" class="preset">
+      <input type="hidden" id="currentFont" name="current_font" value="">
+      <input type="hidden" id="currentColor" name="current_color" value="">
+      <div class="containerr"><input type="submit" value="Create New Preset"></div>
+    </form>
+
+
+
+
+    <div class="logout-link">
+      <p><a href="#" id="logout-link">Logout</a></p>
+  </div>
+  
+  <!-- Logout Confirmation Modal -->
+  <div id="logout-modal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Are you sure you want to logout?</p>
+          <button id="cancel-btn">Cancel</button>
+          <button id="logout-btn">Logout</button>
+      </div>
+  </div>
+  
+  </div>
+
+
+  <script>
+    function updateColor() {
+        var fontColorInput = document.getElementById("fontColor");
+        var currentColorInput = document.getElementById("currentColor");
+        currentColorInput.value = fontColorInput.value;
+    }
+  
+    function changeFont(fontName) {
+        var clock = document.getElementById("clock");
+        var date = document.getElementById("date");
+  
+        // Apply font family
+        clock.style.fontFamily = fontName;
+        date.style.fontFamily = fontName;
+  
+        // Set current font value
+        var currentFontInput = document.getElementById("currentFont");
+        currentFontInput.value = fontName;
+    }
+  </script>
+
+<script>
+  // Get the logout link and modal
+var logoutLink = document.getElementById("logout-link");
+var modal = document.getElementById("logout-modal");
+
+// When the logout link is clicked, show the modal
+logoutLink.addEventListener("click", function() {
+    modal.style.display = "block";
+});
+
+// When the user clicks on the 'x' or outside the modal, close it
+window.addEventListener("click", function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Close the modal when clicking the 'x'
+var closeBtn = document.getElementsByClassName("close")[0];
+closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+// When the cancel button is clicked, close the modal
+var cancelBtn = document.getElementById("cancel-btn");
+cancelBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+// When the logout button is clicked, perform logout action
+var logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener("click", function() {
+        window.location.href = '/logout';
+    });
+
+
+</script>
+
+  <script src="static/script.js"></script>
+</body>
+
+
+</html>

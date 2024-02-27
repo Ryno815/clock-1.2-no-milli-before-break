@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="static/styles.css" type="text/css">
+</head>
+<body>
+  <div class="top-screen">
+
+    <!-- Clock and date -->
+    <div class="container">
+        <div id="clock" class="clock"></div>
+        <div id="date" class="date"></div>
+    </div>
+  </div>
+
+  <div class="white-screen">
+ <!-- Color Selector -->
+ <div class="color-selector">
+  <input type="color" id="fontColor" value="#000000">
+</div>
+
+<!-- Font Options -->
+<div class="font-options">
+  <button onclick="changeFont('Arial')">Arial</button>
+  <button onclick="changeFont('Times New Roman')">Times New Roman</button>
+</div>
+
+  <!-- Login Form Section -->
+  <div class="login-section">
+    <div class="login-form">
+        <form method="post" action="/login">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="checkbox" id="showPassword" onchange="togglePassword()"> Show Password<br><br>            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Link to create an account -->
+    <div class="create-account-link">
+        <p>Don't have an account? <a href="/create">Create one!</a></p>
+    </div>
+  </div>
+
+
+  
+  <script>
+    function togglePassword() {
+        var passwordField = document.getElementById("password");
+        var showPasswordCheckbox = document.getElementById("showPassword");
+        if (showPasswordCheckbox.checked) {
+            passwordField.type = "text";
+        } else {
+            passwordField.type = "password";
+        }
+    }
+</script>
+
+
+
+<script src="static/script.js"></script>
+
+</body>
+
+
+</html>
